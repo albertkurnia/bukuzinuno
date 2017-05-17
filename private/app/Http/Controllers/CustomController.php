@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-class CustomController extends Controller implements \ArrayAccess 
+class CustomController extends Controller
 {
 	public $status = array();
+	public $message = array();
 
 	public function __construct() {
 		$this->status = array(
@@ -12,25 +13,11 @@ class CustomController extends Controller implements \ArrayAccess
 			'NOT_FOUND' => 404,
 			'INTERNAL_SERVER_ERROR' => 500,
 			);
-	}
 
-	public function offsetSet($offset, $value) {
-		if (is_null($offset)) {
-			$this->status[] = $value;
-		} else {
-			$this->status[$offset] = $value;
-		}
-	}
-
-	public function offsetExists($offset) {
-		return isset($this->status[$offset]);
-	}
-
-	public function offsetUnset($offset) {
-		unset($this->status[$offset]);
-	}
-
-	public function offsetGet($offset) {
-		return isset($this->status[$offset]) ? $this->status[$offset] : null;
+		$this->message = array(
+			'OK' => 'OK',
+			'NOT_FOUND' => 'Not Found',
+			'INTERNAL_SERVER_ERROR' => 'Internal Server Error',
+			);
 	}
 }

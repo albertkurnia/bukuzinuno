@@ -16,4 +16,8 @@ class Tplagu extends Model
 	protected $hidden = [
 		'created_by', 'created_at', 'updated_by', 'updated_at', 
 	];
+
+	public function lirik() {
+		return $this->hasMany('App\TpLirik', 'nomor', 'nomor');
+	}
 }

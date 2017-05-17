@@ -14,29 +14,21 @@ use Illuminate\Http\Response;
 */
 
 $app->get('/', function (){
-	return response()->json("Hello", 200);
+	return response()->json("Yaahowu!", 200);
 });
+
+$app->post('login', 'AuthController@doLogin');
 
 $app->get('lagu', 'LaguController@index');
 $app->post('lagu', 'LaguController@store');
+$app->get('lagu/{cari}/cari', 'LaguController@cari');
 $app->get('lagu/{nomor}', 'LaguController@show');
+$app->put('lagu/{nomor}', 'LaguController@update');
+$app->delete('lagu/{nomor}', 'LaguController@destroy');
 
-
-
-
-// $app->get('/get_all_judul', function () use ($app) {
-// 	return $app['db']->select("select h.nomor, UPPER(h.judul) as judul, UPPER(h.lala_note) as lala_note, h.info_nada, h.row_status, h.created_at
-// 		, h.created_by, h.updated_at, h.updated_by
-// 		from tp_lagu h
-// 		inner join tp_lirik d on d.nomor = h.nomor
-// 		group by h.nomor, h.judul, h.lala_note, h.info_nada, h.row_status, h.created_at, h.created_by, h.updated_at, h.updated_by");
-// });
-
-// $app->get('/get_all_lirik', function () use ($app) {
-// 	return $app['db']->select("select 
-// 		d.nomor, d.urut_ayat, REPLACE(d.lirik, '<br>', '') as lirik
-// 		from tp_lagu h
-// 		inner join tp_lirik d on d.nomor = h.nomor
-// 		group by d.nomor, d.urut_ayat, d.lirik
-// 		order by d.nomor asc, d.urut_ayat asc");
-// });
+$app->get('lagu/{nomor}/ayatsuggest', 'LirikController@ayatsuggest');
+$app->get('lagu/{nomor}/ayat', 'LirikController@showAllLyric');
+$app->post('lagu/{nomor}/ayat', 'LirikController@store');
+$app->get('lagu/{nomor}/ayat/{ayat}', 'LirikController@show');
+$app->put('lagu/{nomor}/ayat/{ayat}', 'LirikController@update');
+$app->delete('lagu/{nomor}/ayat/{ayat}', 'LirikController@destroy');

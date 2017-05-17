@@ -3,7 +3,7 @@
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 
-class Tplagu extends Model
+class TpLirik extends Model
 {
 	protected $table = 'tp_lirik';
 	protected $primaryKey = 'id_lirik';
@@ -12,7 +12,7 @@ class Tplagu extends Model
 	];
 
 	protected $hidden = [
-		'created_by', 'created_at', 'updated_by', 'updated_at', 
+		'id_lirik', 'created_by', 'created_at', 'updated_by', 'updated_at', 
 	];
 
 }
