@@ -14,7 +14,7 @@ use Illuminate\Http\Response;
 */
 
 $app->get('/', function (){
-	return response()->json("Yaahowu!", 200);
+	return view("welcome");
 });
 
 $app->post('login', 'AuthController@doLogin');
