@@ -9,9 +9,13 @@ use App\TpLagu;
 
 class LaguController extends CustomController
 {
+
+	private $list_lagu = "daftar_lagu";
+	
 	public function index() {
 		try {
-			return TpLagu::with('lirik')->get();
+			$data = TpLagu::with('lirik')->get();
+			return view($this->list_lagu, ['data' => $data]);
 		} catch(\Exception $e) {
 			if($e instanceof ModelNotFoundException) {
 				return response()->json($this->message['NOT_FOUND'], $this->status['NOT_FOUND']);

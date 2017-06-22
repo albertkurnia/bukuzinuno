@@ -16,10 +16,29 @@ use Illuminate\Http\Response;
 $app->get('/', function (){
 	return view("welcome");
 });
+$app->get('search', 'SearchController@index');
+$app->get('cari', 'SearchController@cari');
+$app->get('lagu', 'LaguController@index');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $app->post('login', 'AuthController@doLogin');
 
-$app->get('lagu', 'LaguController@index');
 $app->post('lagu', 'LaguController@store');
 $app->get('lagu/{cari}/cari', 'LaguController@cari');
 $app->get('lagu/{nomor}', 'LaguController@show');
