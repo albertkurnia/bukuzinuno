@@ -51,7 +51,7 @@
 										<p class="mb-0">
 											<a href="{{url('lagu/'.$row->nomor)}}" class="green darken-1">{{url('lagu/'.$row->nomor)}}<i class="icon-caret-down" aria-hidden="true"></i></a>
 										</p>
-										<p>{{substr($row->lirik, 0, 100)}}...</p>
+										<p>{!!substr($row->lirik, 0, 100)!!}...</p>
 									</div>
 								</li>
 								@endforeach
@@ -64,4 +64,11 @@
 		</div>
 	</div>
 </div>
+@endsection
+@section('customJs')
+<script>
+	$(document).ready(function() {
+		body.addClass('menu-collapsed');
+	});
+</script>
 @endsection

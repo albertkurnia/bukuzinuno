@@ -1,8 +1,13 @@
 <div data-scroll-to-active="true" class="main-menu menu-fixed menu-dark menu-accordion menu-shadow">
     <div class="main-menu-content">
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+            <li class="nav-item {{app()->request->is('/') ? 'active' : ''}}">
+                <a href="{{url()}}"><i class="icon-home3"></i>
+                    <span class="menu-title">Home</span>
+                </a>
+            </li>
             <li class="nav-item {{app()->request->is('search*') ? 'active' : ''}}">
-                <a href="{{url('search')}}"><i class="icon-search4"></i>
+                <a href="{{url('search')}}"><i class="icon-search5"></i>
                     <span class="menu-title">Pencarian</span>
                 </a>
             </li>

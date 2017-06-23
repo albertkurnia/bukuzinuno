@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Cari Lagu')
 @section('content')
 <div class="app-content content container-fluid">
 	<div class="content-wrapper">
